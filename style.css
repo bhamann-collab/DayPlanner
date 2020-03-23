@@ -1,0 +1,85 @@
+body {
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    box-sizing: border-box;
+    color: #2c3e50;
+}
+
+.header {
+    height: 100px;
+    width: 100%;
+    background: #bdc3c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 5px #2c3e50, 0 1px 2px rgba(0,0,0,0);
+}
+
+.main-content {
+    margin-top: 10px;
+    height: inherit;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.time-slot {
+    margin: 10px;
+    height: 60px;
+    min-width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: all .2s ease-in-out;
+}
+
+.time-slot:hover { 
+    transform: scale(1.1); 
+    cursor: pointer;
+}
+
+.hour {
+    flex-grow: 0;
+    width: 90px;
+    /*width: 12%;*/
+    height: inherit;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: #27ae60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #2c3e50;
+}
+
+.rec , input[type="search"] {
+    flex-grow: 1;
+    height: inherit;
+    width: 100px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: #2ecc71;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.rec p {
+    padding-left: 5px;
+}
+
+.day-of-year {
+    display: flex;
+}
+
+.day-of-year h1:nth-child(2) {
+    padding: 0 50px;
+}
+
