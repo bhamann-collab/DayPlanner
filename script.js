@@ -1,9 +1,31 @@
 var changeText = false;
 var currentTimeBlock;
 
-toggleButtonOptions();
+//Time block	
+var weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var today = new Date();
+var tomorrow = today;
+tomorrow.setDate(tomorrow.getDate() + 1);
+var yesturday = today;
+yesturday.setDate(yesturday.getDate() - 1);
 
-$(".day-of-year").children()[1].innerHTML = `${getTheDay()}, ${getTheDate()} ${getTheMonth()}, ${getTheYear()}`
+$(".change-date").on("click", function() {
+    if($(this).attr('id') === "back") {
+        today = yesturday;
+        tomorrow = today;
+        yesturday.setDate(yesturday.getDate() - 1);
+    } else if($(this).attr('id') === "forward") {
+        today = tomorrow;
+        yesturday = today;
+        tomorrow.setDate(tomorrow.getDate() + 1);
+    }
+    updateDate()
+})
+//Time block
+
+toggleButtonOptions();
+updateDate();
 
 $(".time-slot").on("click", function() {
     if(changeText === false) {
@@ -67,31 +89,7 @@ function timeslotAnimationOn() {
     })
 }
 
-function getTheDay() {
-    var date = new Date()
-    var day = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"]
-    return day[date.getDay()]
+function updateDate() {
+    $(".day-of-year").children()[1].innerHTML = `${weekday[today.getDay()]}, ${today.getDate()} ${month[today.getMonth()]}, ${today.getFullYear()}`
 }
-
-function getTheMonth() {
-    var date = new Date()
-    var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    return month[date.getMonth()]
-}
-
-function getTheYear() {
-    var date = new Date()
-    return (date.getYear() + 1900)
-}
-
-function getTheDate() {
-    var date = new Date()
-    return date.getDate()
-}
-
-function getTheHour() {
-    var date = new Date()
-    return date.getHours()
-}
-
 
