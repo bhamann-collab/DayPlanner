@@ -75,7 +75,7 @@ body {
     transition: all .2s ease-in-out;
 }
 
-.time-slot:hover, #save-button:hover, #delete-button:hover, #cancel-button:hover { 
+.time-slot:hover, #save-button:hover, #delete-button:hover, #cancel-button:hover, h1:nth-child(1), h1:nth-child(3) { 
     transform: scale(1.1); 
     cursor: pointer;
 }
