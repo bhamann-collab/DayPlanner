@@ -94,6 +94,10 @@ body {
     border-right: 1px solid #2c3e50;
 }
 
+.rec {
+    background: #2ecc71;
+}
+
 .rec , input[type="search"] {
     flex-grow: 1;
     height: inherit;

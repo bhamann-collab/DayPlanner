@@ -1,7 +1,9 @@
+//changeText variable indicates if a block of time has been selected or not for the user to edit
 var changeText = false;
+//currentTimeBlock indicates the current timeblock to edit
 var currentTimeBlock;
 
-//Time block	
+//Time initialisation starts here
 var weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var today = new Date();
@@ -22,7 +24,7 @@ $(".change-date").on("click", function() {
     }
     updateDate()
 })
-//Time block
+//Time initialisation ends here
 
 toggleButtonOptions();
 updateDate();
@@ -33,11 +35,12 @@ $(".time-slot").on("click", function() {
         $(this).find(".rec").css("display", "none");
         //Inserting an input rectangle
         $(this).append($("<input type='search'>"));
-
         $(this).find('input').val(`${$(this).find(".rec").text()}`)
         $(this).find('input').select()
 
+        //Turning Buttons on or off
         toggleButtonOptions();
+        //turning the animations off for the time blocks while editing
         timeslotAnimationOff();
 
         changeText = true;
@@ -66,8 +69,6 @@ $(".change-option-button").on("click", function() {
     //Restoring the hovering functionality
     timeslotAnimationOn();
     changeText = false;
-
-    
 })
 
 
@@ -92,4 +93,3 @@ function timeslotAnimationOn() {
 function updateDate() {
     $(".day-of-year").children()[1].innerHTML = `${weekday[today.getDay()]}, ${today.getDate()} ${month[today.getMonth()]}, ${today.getFullYear()}`
 }
-
